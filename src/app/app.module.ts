@@ -10,7 +10,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTabsModule } from '@angular/material/tabs';
+// import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTabsModule,
+    // MatTabsModule,
     ToastrModule.forRoot()
   ],
   providers: [],

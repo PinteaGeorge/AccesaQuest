@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import ValidateForm from 'src/app/helpers/validateForm';
-import { AuthService } from 'src/app/services/auth.service';
+import ValidateForm from 'app/helpers/validateForm';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   type: string = "password";
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash";
-  loginForm!: UntypedFormGroup;
-  constructor(private formBuilder: UntypedFormBuilder,
+  loginForm!: FormGroup;
+  constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService) { }

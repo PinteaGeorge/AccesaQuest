@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import ValidateForm from 'app/helpers/validateForm';
+import { AuthService } from 'app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import ValidateForm from 'src/app/helpers/validateForm';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,8 +14,8 @@ export class SignUpComponent implements OnInit {
   type: string = "password";
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash";
-  signUpForm!: UntypedFormGroup;
-  constructor(private formBuilder: UntypedFormBuilder,
+  signUpForm!: FormGroup;
+  constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService) { }
