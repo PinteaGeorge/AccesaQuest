@@ -1,77 +1,30 @@
 <div class="outer">
     <div class="container">
-        <div class="nav-container bg-white rounded">
-            <ul class="nav nav-pills nav-fill">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" routerLink='/dashboard'
-                        routerLinkActive='active'>Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink='/quests' routerLinkActive='active'>Quests</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLinkActive='active' routerLink='/badges'>Badges</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLinkActive='active' routerLink='/leaderboards'>Leader Board</a>
-                </li>
-            </ul>
-        </div>
-        <div class="row mt-4">
+        <div class="row">
             <div class="container-profile bg-white">
                 <div class="panel-heading">
-                    <h2 class="pt-3 font-weight-bold">Welcome {{fullName}}</h2>
+                    <h2 class="pt-3 font-weight-bold">Welcome User</h2>
                 </div>
-                <div class="panel-board p-3" *ngFor="let item of user">
+                <div class="panel-board p-3">
                     <div class="level">
                         <img class="img" src="../../../assets/images/level-up.png" alt="level">
-                        <h4>Level: {{item.level}}</h4>
+                        <h4>Level: 10</h4>
                     </div>
                     <div class="xp">
                         <img class="img" src="../../../assets/images/xp.png" alt="xp">
-                        <h4>Xp: {{item.xp}}</h4>
+                        <h4>Xp: 1550</h4>
                     </div>
                     <div class="points">
                         <img class="img" src="../../../assets/images/points.png" alt="points">
-                        <h4>Points: {{item.points}}</h4>
+                        <h4>Points: 500</h4>
                     </div>
                 </div>
-                <button (click)="logout()" class="btn btn-danger btn-block mt-4 w-100">Logout</button>
+                <button class="btn btn-danger btn-block mt-4 w-100">Logout</button>
             </div>
             <div class="container-content bg-white">
-
-
-
-                <div class="quest-grid">
-                    <div class="quest-title">Current Active Quests</div>
-                    <div class="active-quests" *ngIf="quest">
-                        <div class="card-group mt-2 ">
-                            <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;"
-                                *ngFor="let item of takenQuest">
-                                <div class="card-body align-self-center">
-                                    <h5 class="card-title align-self-center">{{item.questName}}</h5>
-                                    <p class="card-text">{{item.questBody}}</p>
-                                    <button (click)="questCompleted()" type="button" class="btn btn-success">Complete
-                                        Quest</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="other-user-quests">Other User Quests</div>
-                    <div class="common-quests">
-                        <div class="card-group mt-2 ">
-                            <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;"
-                                *ngFor="let item of randomOtherUserQuestList">
-                                <div class="card-body align-self-center">
-                                    <h5 class="card-title align-self-center">{{item.questName}}</h5>
-                                    <p class="card-text">{{item.questBody}}</p>
-                                    <button (click)="takeQuest(item)" type="button" class="btn btn-success">Take
-                                        Quest</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <mat-tab-group mat-align></mat-tab-group>
             </div>
         </div>
+
     </div>
+</div>
