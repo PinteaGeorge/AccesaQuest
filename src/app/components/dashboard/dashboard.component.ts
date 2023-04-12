@@ -14,6 +14,8 @@ export class DashboardComponent implements OnInit {
   user: User[] = [];
   userQuestList: any;
   quest: any;
+  otherUserQuestList: any;
+  randomOtherUserQuestList: any;
   randomQuest: any;
   public fullName: string = "";
   constructor(private authService: AuthService,
@@ -29,6 +31,7 @@ export class DashboardComponent implements OnInit {
     });
     this.questService.currentQuest.subscribe(res => this.quest = res);
     this.getUserProfile();
+    this.getOtherUserQuest();
   }
 
   logout() {
@@ -56,6 +59,17 @@ export class DashboardComponent implements OnInit {
       next: res => {
         this.userQuestList = res;
         this.randomQuest = this.getRandomQuest(this.userQuestList, 3);
+      },
+      error: err => err.error.message
+    })
+  }
+
+  getOtherUserQuest() {
+    var token = this.authService.decodedToken();
+    this.questService.getOtherUserQuest(token.nameid).subscribe({
+      next: res => {
+        this.otherUserQuestList = res;
+        this.randomOtherUserQuestList = this.getRandomQuest(this.otherUserQuestList, 3);
       },
       error: err => err.error.message
     })

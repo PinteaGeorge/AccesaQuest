@@ -88,17 +88,14 @@ export class QuestsComponent implements OnInit {
   }
 
   getUserQuest() {
-    this.questService.getUserQuest(this.userQuestList).subscribe({
+    var token = this.authService.decodedToken();
+    this.questService.getUserQuest(token.nameid).subscribe({
       next: res => {
         this.userQuestList = res;
         this.randomUserQuestList = this.getRandomQuest(this.userQuestList, 3);
       },
       error: err => err.error.message
     })
-  }
-
-  editUserQuest(item: any) {
-
   }
 
   cancelUserQuest(item: any) {

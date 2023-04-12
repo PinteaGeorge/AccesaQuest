@@ -24,12 +24,12 @@ export class QuestService {
     return this.http.post<Quest>(`${this.baseUrl}addnewquest`, quest);
   }
 
-  getUserQuest(quest: any) {
-    return this.http.get<any>(`${this.baseUrl}getuserquest`, quest);
+  getUserQuest(userId: number) {
+    return this.http.get<any>(`${this.baseUrl}getuserquest/${userId}`);
   }
 
-  editUserQuest(quest: any) {
-    return this.http.put<any>(`${this.baseUrl}edituserquest`, quest);
+  getOtherUserQuest(userId: number) {
+    return this.http.get<any>(`${this.baseUrl}getotheruserquest/${userId}`);
   }
 
   deleteUserQuest(questId: number) {

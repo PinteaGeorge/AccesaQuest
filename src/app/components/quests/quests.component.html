@@ -13,7 +13,7 @@
                     <a class="nav-link" routerLinkActive='active' routerLink='/badges'>Badges</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive='active' routerLink='/leader-boards'>Leader Board</a>
+                    <a class="nav-link" routerLinkActive='active' routerLink='/leaderboards'>Leader Board</a>
                 </li>
             </ul>
         </div>
@@ -46,9 +46,6 @@
                                 <div class="card-body align-self-center">
                                     <h5 class="card-title align-self-center">{{item.questName}}</h5>
                                     <p class="card-text">{{item.questBody}}</p>
-                                    <button (click)="editUserQuest(item)" type="button"
-                                        class="mx-2 btn btn-primary">Edit
-                                        Quest</button>
                                     <button (click)="cancelUserQuest(item)" type="button"
                                         class="mx-2 btn btn-danger">Cancel
                                         Quest</button>

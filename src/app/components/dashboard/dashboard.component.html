@@ -39,53 +39,34 @@
                 <button (click)="logout()" class="btn btn-danger btn-block mt-4 w-100">Logout</button>
             </div>
             <div class="container-content bg-white">
-                <div class="container mt-4" style="width: 100%;" *ngIf="quest">
-                    <h4>Current Quest</h4>
-                    <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;">
-                        <div class="card-body align-self-center">
-                            <h5 class="card-title align-self-center">{{quest.questName}}</h5>
-                            <p class="card-text">{{quest.questBody}}</p>
-                            <button (click)="questCompleted()" type="button" class="btn btn-success">Complete
-                                Quest</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="container mt-4" style="width: 100%;">
-                    <h4>User Quest</h4>
-                    <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;">
-                        <div class="card-body align-self-center">
-                            <h5 class="card-title align-self-center">{{quest.questName}}</h5>
-                            <p class="card-text">{{quest.questBody}}</p>
-                            <button (click)="questCompleted()" type="button" class="btn btn-success">Complete
-                                Quest</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="quest-grid">
-                <div class="quest-title">Current Active Quests</div>
-                <div class="active-quests" *ngIf="quest">
-                    <div class="card-group mt-2 ">
-                        <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;">
-                            <div class="card-body align-self-center">
-                                <h5 class="card-title align-self-center">{{quest.questName}}</h5>
-                                <p class="card-text">{{quest.questBody}}</p>
-                                <button (click)="questCompleted()" type="button" class="btn btn-success">Complete
-                                    Quest</button>
+
+
+
+                <div class="quest-grid">
+                    <div class="quest-title">Current Active Quests</div>
+                    <div class="active-quests" *ngIf="quest">
+                        <div class="card-group mt-2 ">
+                            <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;">
+                                <div class="card-body align-self-center">
+                                    <h5 class="card-title align-self-center">{{quest.questName}}</h5>
+                                    <p class="card-text">{{quest.questBody}}</p>
+                                    <button (click)="questCompleted()" type="button" class="btn btn-success">Complete
+                                        Quest</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="other-user-quests">Other User Quests</div>
-                <div class="common-quests">
-                    <div class="card-group mt-2 ">
-                        <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;"
-                            *ngFor="let item of randomQuest">
-                            <div class="card-body align-self-center">
-                                <h5 class="card-title align-self-center">{{item.questName}}</h5>
-                                <p class="card-text">{{item.questBody}}</p>
-                                <button (click)="takeQuest(item)" type="button" class="btn btn-success">Take
-                                    Quest</button>
+                    <div class="other-user-quests">Other User Quests</div>
+                    <div class="common-quests">
+                        <div class="card-group mt-2 ">
+                            <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;"
+                                *ngFor="let item of randomOtherUserQuestList">
+                                <div class="card-body align-self-center">
+                                    <h5 class="card-title align-self-center">{{item.questName}}</h5>
+                                    <p class="card-text">{{item.questBody}}</p>
+                                    <button (click)="takeQuest(item)" type="button" class="btn btn-success">Take
+                                        Quest</button>
+                                </div>
                             </div>
                         </div>
                     </div>
