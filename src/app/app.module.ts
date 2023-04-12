@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,14 +10,21 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatTabsModule } from '@angular/material/tabs';
+import { QuestsComponent } from './components/quests/quests.component';
+import { BadgesComponent } from './components/badges/badges.component';
+import { LeaderBoardComponent } from './components/leader-board/leader-board.component';
+import { AuthGuard } from './guards/auth.guard';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    DashboardComponent
+    DashboardComponent,
+    QuestsComponent,
+    BadgesComponent,
+    LeaderBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // MatTabsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

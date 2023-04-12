@@ -1,6 +1,6 @@
 .container-profile{
     width: 20rem;
-    height: 45vh;
+    height: 50vh;
     border: 1px solid black;
     border-radius: 15px;
     margin: 15px;
@@ -11,7 +11,7 @@
     border: 1px solid black;
     border-radius: 15px;
     margin: 15px;
-    height: 95vh;
+    height: 85vh;
     float: left;
 }
 
@@ -54,3 +54,14 @@ h4{
     display: block;
     align-self: auto;
 }
+
+.nav{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+}
+
+
+

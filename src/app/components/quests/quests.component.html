@@ -1,0 +1,77 @@
+<div class="outer">
+    <div class="container">
+        <div class="nav-container bg-white rounded">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink='/dashboard'
+                        routerLinkActive='active'>Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/quests' routerLinkActive='active'>Quests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive='active' routerLink='/badges'>Badges</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive='active' routerLink='/leader-boards'>Leader Board</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row mt-4">
+            <div class="container-content bg-white">
+                <div class="quest-grid">
+                    <div class="create-quest mt-4">
+                        <form [formGroup]="questForm">
+                            <div class="row">
+                                <input class="mx-4 rounded border border-1 border-dark" style="width: 20rem;"
+                                    formControlName="questName" type="text" placeholder="Quest Title" required>
+                                <input class="mx-4 rounded border border-1 border-dark text-center" style="width: 5rem;"
+                                    readonly formControlName="questXp" type="text" placeholder="10">
+                                <input class="mx-4 rounded border border-1 border-dark" style="width: 10rem;"
+                                    formControlName="questPoints" type="number" placeholder="Quest Points" required>
+                            </div>
+                            <div class="row">
+                                <input class="my-2 mx-4 rounded border border-1 border-dark" style="width: 90%;"
+                                    formControlName="questBody" type="text" placeholder="Quest Text Field" required>
+                            </div>
+                            <button (click)="onSubmit()" [disabled]="!questForm.valid" type="submit"
+                                class="btn btn-primary">Create Quest</button>
+                        </form>
+                    </div>
+                    <div class="quest-title">Your Quests</div>
+                    <div class="your-quests">
+                        <div class="card-group mt-2 ">
+                            <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;"
+                                *ngFor="let item of randomUserQuestList">
+                                <div class="card-body align-self-center">
+                                    <h5 class="card-title align-self-center">{{item.questName}}</h5>
+                                    <p class="card-text">{{item.questBody}}</p>
+                                    <button (click)="editUserQuest(item)" type="button"
+                                        class="mx-2 btn btn-primary">Edit
+                                        Quest</button>
+                                    <button (click)="cancelUserQuest(item)" type="button"
+                                        class="mx-2 btn btn-danger">Cancel
+                                        Quest</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quest-common-title">Quests</div>
+                    <div class="common-quests">
+                        <div class="card-group mt-2 ">
+                            <div class="card mx-4 border border-2 border-dark rounded" style="width: 18rem;"
+                                *ngFor="let item of randomQuest">
+                                <div class="card-body align-self-center">
+                                    <h5 class="card-title align-self-center">{{item.questName}}</h5>
+                                    <p class="card-text">{{item.questBody}}</p>
+                                    <button (click)="sendToDashboard(item)" type="button" class="btn btn-success">Take
+                                        Quest</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
