@@ -19,9 +19,26 @@
         </div>
         <div class="row mt-4">
             <div class="container-content bg-white">
-                <!-- <p *ngFor="let item of test">
-                    {{item.questName}}
-                </p> -->
+                <table class="GeneratedTable">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Xp</th>
+                            <th>Points</th>
+                            <th>Quests Completed</th>
+                            <th>Quests Composed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of dataSource">
+                            <td>{{item.username}}</td>
+                            <td>{{item.xp}}</td>
+                            <td>{{item.points}}</td>
+                            <td>{{item.questsCompleted}}</td>
+                            <td>{{item.questsComposed}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

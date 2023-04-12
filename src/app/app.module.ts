@@ -32,7 +32,6 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    // MatTabsModule,
     ToastrModule.forRoot()
   ],
   providers: [AuthGuard,

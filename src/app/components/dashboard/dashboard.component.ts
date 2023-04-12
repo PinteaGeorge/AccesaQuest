@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Quest } from 'app/models/QuestModel';
 import { User } from 'app/models/UserModel';
 import { AuthService } from 'app/services/auth.service';
 import { QuestService } from 'app/services/quest.service';
@@ -14,6 +15,7 @@ export class DashboardComponent implements OnInit {
   user: User[] = [];
   userQuestList: any;
   quest: any;
+  takenQuest: Quest[] = [];
   otherUserQuestList: any;
   randomOtherUserQuestList: any;
   randomQuest: any;
@@ -43,7 +45,6 @@ export class DashboardComponent implements OnInit {
     this.authService.getUserProfile(token.nameid).subscribe({
       next: res => {
         this.user.push(res);
-        console.log(this.user);
       },
       error: err => err.error.message
     })
@@ -76,10 +77,11 @@ export class DashboardComponent implements OnInit {
   }
 
   questCompleted() {
-
+    this.takenQuest.splice(1, 0);
   }
 
   takeQuest(item: any) {
-
+    this.takenQuest.push(this.quest);
+    this.takenQuest.push(item);
   }
 }

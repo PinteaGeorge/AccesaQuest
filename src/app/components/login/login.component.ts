@@ -54,8 +54,9 @@ export class LoginComponent implements OnInit {
       })
     } else {
       ValidateForm.validateFormFields(this.loginForm);
-      alert("Your form is invalid");
-      //throw error with toastr
+      this.toastr.error('Your form is invalid', 'Error', {
+        positionClass: 'toast-bottom-right'
+      });
     }
   }
 }
